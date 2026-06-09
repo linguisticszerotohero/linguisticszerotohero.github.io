@@ -171,7 +171,7 @@
 
         .gif-container {
             width: 100%;
-            max-width: 400px;
+            max-width: 220px; /* Made the Darth Vader GIF smaller here */
             margin: 20px auto 10px auto;
             border: 3px inset #ffffff;
             background: #000;
@@ -183,6 +183,17 @@
             width: 100%;
             display: block;
             height: auto;
+        }
+
+        /* --- Universal Image Display Styles --- */
+        .xp-image-frame {
+            width: 100%;
+            max-height: 350px;
+            border: 2px inset #ffffff;
+            background: #eef2fb;
+            display: block;
+            margin: 10px 0 15px 0;
+            object-fit: contain;
         }
 
         .home-credits {
@@ -225,20 +236,6 @@
                 top: 0;
                 flex-wrap: wrap;
             }
-        }
-
-        .img-placeholder {
-            width: 100%;
-            height: 220px;
-            background: #eef2fb;
-            border: 2px inset white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: #555;
-            margin-bottom: 15px;
-            text-align: center;
         }
 
         /* --- Table Layout --- */
@@ -335,6 +332,16 @@
         .badge-success { background: #388e3c; color: white; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
         h2 { margin-bottom: 15px; border-bottom: 2px groove #ece9d8; padding-bottom: 5px; }
 
+        /* Style for the clean breakdown list */
+        .comparison-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .comparison-list li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
     </style>
 </head>
 <body>
@@ -406,21 +413,20 @@
             </p>
 
             <div class="xp-panel">
-                <strong>The Four Sub-Maxims:</strong>
+                <strong>The Four Sub-Maxims of Manner:</strong>
                 <ul style="margin-top: 10px; padding-left: 20px;">
                     <li><b>Avoid obscurity of expression</b> - Do not use overly complex terminology or jargon that the listener cannot understand.</li>
                     <li><b>Avoid ambiguity</b> - Do not speak vaguely or leave room for multiple conflicting interpretations. </li>
-                    <li><b>Be brief</b>- Avoid unnecessary wordiness, rambling, and over-explaining.</li>
+                    <li><b>Be brief</b> - Avoid unnecessary wordiness, rambling, and over-explaining.</li>
                     <li><b>Be orderly</b> - Present information in a logical, chronological, or step-by-step sequence so the listener can easily follow along.</li>
                 </ul>
             </div>
 
             <div class="xp-panel">
                 <strong>Significance & Reflection:</strong>
-                <p>Understanding the Maxim of Manner is essential for effective communication for two main reasons:
-</p>
+                <p>Understanding the Maxim of Manner is essential for effective communication for two main reasons:</p>
                 <p style="margin-top:5px;">i. <strong>Maximizes Efficiency:</strong> It prevents communication breakdowns by ensuring speakers structure their thoughts logically, saving the listener’s time and effort.</p>
-                <p>ii. <strong>Decodes Hidden Meanings:</strong>  It helps us identify “implicatures”—hidden messages created when people intentionally break the rules to be indirect or evasive.</p>
+                <p>ii. <strong>Decodes Hidden Meanings:</strong> It helps us identify “implicatures”—hidden messages created when people intentionally break the rules to be indirect or evasive.</p>
             </div>
         </div>
     </div>
@@ -436,26 +442,23 @@
             <div class="case-study-container">
                 <div>
                     <span class="badge-fail">Incorrect Use</span>
-                    <div class="img-placeholder" style="margin-top:10px;">[Insert Your Image Here]</div>
-                    <p><strong>Why it failed:</strong></p>
-                <ul style="margin-top: 10px; padding-left: 20px;">
-                    <li><b>Avoid obscurity of expression</b> - Do not use overly complex terminology or jargon that the listener cannot understand.</li>
-                    <li><b>Avoid ambiguity</b> - Do not speak vaguely or leave room for multiple conflicting interpretations. </li>
-                    <li><b>Be brief</b>- Avoid unnecessary wordiness, rambling, and over-explaining.</li>
-                    <li><b>Be orderly</b> - Present information in a logical, chronological, or step-by-step sequence so the listener can easily follow along.</li>
-                </ul>
-                    
+                    <img class="xp-image-frame" src="incorrect-use.png" alt="Incorrect Use Scenario Screenshot">
+                    <p><strong>Why situation B failed:</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li><b>Obscurity</b> - Used confusing technical jargon like "firmware matrix" and "cache loop".</li>
+                        <li><b>Not Brief</b> - Rambled about their own phone and buggy updates, which were irrelevant. </li>
+                        <li><b>Not Orderly</b> - Scrambled the instructions chronologically.</li>
+                    </ul>
                 </div>
                 <div>
                     <span class="badge-success">Correct Use</span>
-                    <div class="img-placeholder" style="margin-top:10px;">[Insert Your Image Here]</div>
-                    <p><strong>Why it succeeded:</strong> </p>
-                <ul style="margin-top: 10px; padding-left: 20px;">
-                    <li><b>Avoid obscurity of expression</b> - Do not use overly complex terminology or jargon that the listener cannot understand.</li>
-                    <li><b>Avoid ambiguity</b> - Do not speak vaguely or leave room for multiple conflicting interpretations. </li>
-                    <li><b>Be brief</b>- Avoid unnecessary wordiness, rambling, and over-explaining.</li>
-                    <li><b>Be orderly</b> - Present information in a logical, chronological, or step-by-step sequence so the listener can easily follow along.</li>
-                </ul>
+                    <img class="xp-image-frame" src="correct-use.png" alt="Correct Use Scenario Screenshot">
+                    <p><strong>Why situation B succeeded:</strong> </p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li><b>Clear</b> - Used simple, everyday language with zero ambiguity.</li>
+                        <li><b>Brief</b> - Stayed 100% focused on the solution without any rambling. </li>
+                        <li><b>Orderly</b> - Used clear structural markers to give a perfect step-by-step order.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -469,22 +472,37 @@
         </div>
         <div class="xp-content">
             <h2>2. Phonetics: Consonants</h2>
-            <p><strong>Definition:</strong> A consonant is a speech sound that is articulated with complete or partial closure of the vocal tract.</p>
+            <p><strong>Definition:</strong> A consonant is a speech sound that is produced with some restriction or closure in the vocal tract that impedes the air flow from the lung.</p>
             
+            <!-- Underline fixed, structural presentation upgraded without changing your words -->
             <div class="xp-panel">
-                <strong>Consonants vs. Vowels:</strong> Consonants involve structural obstacles (constriction) whereas vowels allow air to flow freely.
+                <p style="font-weight: bold; margin-bottom: 10px; color: var(--xp-blue-dark); text-transform: uppercase;">Consonants vs. Vowels: These are the three major differences between consonantds and vowels.</p>
+                <ul class="comparison-list">
+                    <li>
+                        <strong>1. Airflow Modification ("Roadblocks" vs. Free Flow)</strong><br>
+                        To pronounce a consonant sound, the air from you lung hits a "roadblocks" or a certain mouth structure like tongue, teeth, or lips to actively block, squeeze or redirect the air. Unlike how we pronounce vowels, your mouth stays wide open and the airflow is completely unobstructed.
+                    </li>
+                    <li>
+                        <strong>2. Production Mechanics (Physical Contact vs. Shaping Spaces)</strong><br>
+                        While Consonants rely on physical contact in the mouth to pronounce them, vowels rely only on shaping spcaes for it to be pronounced.
+                    </li>
+                    <li>
+                        <strong>3. Syllabic Infrastructure (The Language Backbone vs. Consonant Limits)</strong><br>
+                        Vowels are the backbone of language for every syllable must have a vowel. In contrary to consonants, you cannot build a proper syllable out of consonants alone.
+                    </li>
+                </ul>
             </div>
 
             <h3>Places of Articulation</h3>
-            <div class="img-placeholder" style="height: 150px;">[Place your anatomical picture here]</div>
+            <img class="xp-image-frame" src="place.png" style="max-height: 250px; margin-left: auto; margin-right: auto;" alt="Vocal Tract Anatomical Diagram">
             <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
-                <div class="xp-panel" style="flex: 1; min-width: 120px;">Bilabials</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px;">Labiodentals</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px;">Dentals</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px;">Alveolar</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px;">Palatals</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px;">Velars</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px;">Glottals</div>
+                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Bilabials</div>
+                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Labiodentals</div>
+                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Dentals</div>
+                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Alveolar</div>
+                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Palatals</div>
+                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Velars</div>
+                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Glottals</div>
             </div>
 
             <h3>Manner of Articulation</h3>
@@ -507,6 +525,7 @@
         <div class="xp-content">
             <h2>The IPA Consonants Table</h2>
             <div class="table-responsive-wrapper">
+                <!-- Completed with all 5 requested rows and corresponding layout mapping -->
                 <table class="ipa-table">
                     <tr>
                         <th>Manner / Place</th>
@@ -525,7 +544,7 @@
                         <td>ʔ</td>
                     </tr>
                     <tr>
-                        <td><strong>Nasal</strong></td>
+                        <td><strong>Nasals</strong></td>
                         <td>m</td>
                         <td></td>
                         <td>n</td>
@@ -539,6 +558,22 @@
                         <td>s z</td>
                         <td></td>
                         <td>h</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Liquids</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td>l r</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glides</strong></td>
+                        <td>w</td>
+                        <td></td>
+                        <td></td>
+                        <td>j</td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
@@ -563,7 +598,7 @@
             
             <!-- Target for your Darth Vader Gif -->
             <div class="gif-container">
-                <img src="darth-vader-tidey.gif" alt="Darth Vader Tidying Gif (Make sure 'darth-vader-tidey.gif' is saved in the same folder as this index.html file)">
+                <img src="darth-vader-tidey.gif" alt="Darth Vader Tidying Gif">
             </div>
             
             <p style="margin-top: 15px; font-weight: bold; color: var(--xp-blue-dark);">
