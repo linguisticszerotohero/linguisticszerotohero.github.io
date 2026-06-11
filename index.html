@@ -171,7 +171,7 @@
 
         .gif-container {
             width: 100%;
-            max-width: 220px; /* Made the Darth Vader GIF smaller here */
+            max-width: 220px; 
             margin: 20px auto 10px auto;
             border: 3px inset #ffffff;
             background: #000;
@@ -332,7 +332,6 @@
         .badge-success { background: #388e3c; color: white; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
         h2 { margin-bottom: 15px; border-bottom: 2px groove #ece9d8; padding-bottom: 5px; }
 
-        /* Style for the clean breakdown list */
         .comparison-list {
             list-style-type: none;
             padding: 0;
@@ -340,6 +339,1036 @@
         .comparison-list li {
             margin-bottom: 12px;
             line-height: 1.5;
+        }
+
+        /* --- Interactive Tooltip Popups Area --- */
+        .articulation-buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .articulation-btn {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            margin-bottom: 0;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.1s;
+        }
+
+        .articulation-btn:hover {
+            background-color: #f1efe2;
+            border-color: var(--xp-blue);
+        }
+
+        .articulation-btn.active-popup {
+            border-style: inset;
+            background-color: #dfdbca;
+        }
+
+        .explanation-popup {
+            display: none;
+            background: #ffffe1; 
+            border: 1px solid #000000;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+            border-radius: 2px;
+            animation: xpPopupFade 0.15s ease-out;
+        }
+
+        @keyframes xpPopupFade {
+            from { opacity: 0; transform: translateY(-2px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- SOUND BLASTER DIAGNOSTIC GAME STYLES --- */
+        .game-status-panel {
+            background: #000000;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 15px;
+            border: 3px inset #ffffff;
+            margin-bottom: 20px;
+            border-radius: 3px;
+        }
+
+        .game-target-display {
+            font-size: 36px;
+            text-align: center;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255,255,255,0.6);
+        }
+
+        .game-grid-title {
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: var(--xp-blue-dark);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .game-selection-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .game-choice-btn {
+            background: var(--xp-light-gray);
+            border: 2px outset #ffffff;
+            padding: 8px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            user-select: none;
+            text-align: center;
+            min-width: 100px;
+            flex: 1;
+        }
+
+        .game-choice-btn:active, .game-choice-btn.selected {
+            border-style: inset;
+            background: #dfdbca;
+        }
+
+        .game-start-btn {
+            background: linear-gradient(to bottom, #ff9900 0%, #ff6600 100%);
+            color: white;
+            font-weight: bold;
+            border: 2px outset white;
+            padding: 10px 24px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 3px;
+            display: inline-block;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+        }
+
+        .game-start-btn:hover {
+            background: linear-gradient(to bottom, #ffaa22 0%, #ff7711 100%);
+        }
+
+        .game-start-btn:active {
+            border-style: inset;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="desktop-shortcuts">
+        <a href="#home-win" class="shortcut">
+            <div class="shortcut-icon">🏠</div>
+            <span>My Project</span>
+        </a>
+        <a href="#pragmatics-win" class="shortcut">
+            <div class="shortcut-icon">📁</div>
+            <span>Pragmatics</span>
+        </a>
+        <a href="#phonetics-win" class="shortcut">
+            <div class="shortcut-icon">🔊</div>
+            <span>Phonetics</span>
+        </a>
+        <a href="#game-win" class="shortcut">
+            <div class="shortcut-icon">🎮</div>
+            <span>Sound Game</span>
+        </a>
+        <a href="#thanks-win" class="shortcut">
+            <div class="shortcut-icon">👋</div>
+            <span>Exit Screen</span>
+        </a>
+    </div>
+
+    <div id="home-win" class="xp-window">
+        <div class="xp-titlebar">
+            <div class="xp-title-text">🌐 Welcome_To_Linguistics.exe</div>
+            <div class="xp-controls">
+                <div class="xp-btn xp-min">_</div>
+                <div class="xp-btn xp-max">⬜</div>
+                <div class="xp-btn xp-close">X</div>
+            </div>
+        </div>
+        <div class="xp-content">
+            <div class="home-banner">
+                <h1>Introduction To Linguistics</h1>
+                <p>Explaining the core concepts of Pragmatics and Phonetics</p>
+            </div>
+            
+            <div class="home-credits">
+                <h3>Subject Areas</h3>
+                <p style="margin-bottom: 15px; font-weight: bold;">
+                    Pragmatics-Cooperative Principles (Maxim of Manner)<br>&<br>Phonetics (Consonants)
+                </p>
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ccc;">
+                <h3>Prepared By</h3>
+                <p class="names">NUR ALEEYA SYAHMINA</p>
+                <p class="names">&</p>
+                <p class="names">MUHAMMAD KHAIDIR KAMIL</p>
+            </div>
+            
+            <p style="margin-top: 20px; text-align: center; color: #666; font-style: italic;">
+                Scroll down or use the shortcuts to begin exploration.
+            </p>
+        </div>
+    </div>
+
+    <div id="pragmatics-win" class="xp-window">
+        <div class="xp-titlebar">
+            <div class="xp-title-text">📁 Pragmatics_Module.exe</div>
+            <div class="xp-controls"><div class="xp-btn xp-close">X</div></div>
+        </div>
+        <div class="xp-content">
+            <h2>1. Pragmatics: Maxim of Manner</h2>
+            <p>
+                The Maxim of Manner is a core component of Paul Grice’s Cooperative Principle. While other conversational maxims deal with what information is shared, the Maxim of Manner strictly governs how that information is presented to the listener, structurally and linguistically. To adhere to this maxim, a speaker must follow four distinct sub-maxims.
+            </p>
+
+            <div class="xp-panel">
+                <strong>The Four Sub-Maxims of Manner:</strong>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li><b>Avoid obscurity of expression</b> - Do not use overly complex terminology or jargon that the listener cannot understand.</li>
+                    <li><b>Avoid ambiguity</b> - Do not speak vaguely or leave room for multiple conflicting interpretations. </li>
+                    <li><b>Be brief</b> - Avoid unnecessary wordiness, rambling, and over-explaining.</li>
+                    <li><b>Be orderly</b> - Present information in a logical, chronological, or step-by-step sequence so the listener can easily follow along.</li>
+                </ul>
+            </div>
+
+            <div class="xp-panel">
+                <strong>Significance & Reflection:</strong>
+                <p>Understanding the Maxim of Manner is essential for effective communication for two main reasons:</p>
+                <p style="margin-top:5px;">i. <strong>Maximizes Efficiency:</strong> It prevents communication breakdowns by ensuring speakers structure their thoughts logically, saving the listener’s time and effort.</p>
+                <p>ii. <strong>Decodes Hidden Meanings:</strong> It helps us identify “implicatures”—hidden messages created when people intentionally break the rules to be indirect or evasive.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cases-win" class="xp-window">
+        <div class="xp-titlebar">
+            <div class="xp-title-text">🖼️ Manner_Example_Viewer.dll</div>
+            <div class="xp-controls"><div class="xp-btn xp-close">X</div></div>
+        </div>
+        <div class="xp-content">
+            <h2>Application Scenario: TECH SUPPORT</h2>
+            <div class="case-study-container">
+                <div>
+                    <span class="badge-fail">Incorrect Use</span>
+                    <img class="xp-image-frame" src="incorrect-use.png" alt="Incorrect Use Scenario Screenshot">
+                    <p><strong>Why situation B failed:</strong></p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li><b>Obscurity</b> - Used confusing technical jargon like "firmware matrix" and "cache loop".</li>
+                        <li><b>Not Brief</b> - Rambled about their own phone and buggy updates, which were irrelevant. </li>
+                        <li><b>Not Orderly</b> - Scrambled the instructions chronologically.</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="badge-success">Correct Use</span>
+                    <img class="xp-image-frame" src="correct-use.png" alt="Correct Use Scenario Screenshot">
+                    <p><strong>Why situation B succeeded:</strong> </p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li><b>Clear</b> - Used simple, everyday language with zero ambiguity.</li>
+                        <li><b>Brief</b> - Stayed 100% focused on the solution without any rambling. </li>
+                        <li><b>Orderly</b> - Used clear structural markers to give a perfect step-by-step order.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="phonetics-win" class="xp-window">
+        <div class="xp-titlebar">
+            <div class="xp-title-text">📁 Phonetics_Consonants.exe</div>
+            <div class="xp-controls"><div class="xp-btn xp-close">X</div></div>
+        </div>
+        <div class="xp-content">
+            <h2>2. Phonetics: Consonants</h2>
+            <p><strong>Definition:</strong> A consonant is a speech sound that is produced with some restriction or closure in the vocal tract that impedes the air flow from the lung.</p>
+            
+            <div class="xp-panel">
+                <p style="font-weight: bold; margin-bottom: 10px; color: var(--xp-blue-dark); text-transform: uppercase;">Consonants vs. Vowels: These are the three major differences between consonantds and vowels.</p>
+                <ul class="comparison-list">
+                    <li>
+                        <strong>1. Airflow Modification ("Roadblocks" vs. Free Flow)</strong><br>
+                        To pronounce a consonant sound, the air from you lung hits a "roadblocks" or a certain mouth structure like tongue, teeth, or lips to actively block, squeeze or redirect the air. Unlike how we pronounce vowels, your mouth stays wide open and the airflow is completely unobstructed.
+                    </li>
+                    <li>
+                        <strong>2. Production Mechanics (Physical Contact vs. Shaping Spaces)</strong><br>
+                        While Consonants rely on physical contact in the mouth to pronounce them, vowels rely only on shaping spcaes for it to be pronounced.
+                    </li>
+                    <li>
+                        <strong>3. Syllabic Infrastructure (The Language Backbone vs. Consonant Limits)</strong><br>
+                        Vowels are the backbone of language for every syllable must have a vowel. In contrary to consonants, you cannot build a proper syllable out of consonants alone.
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Places of Articulation</h3>
+            <img class="xp-image-frame" src="place.png" style="max-height: 250px; margin-left: auto; margin-right: auto;" alt="Vocal Tract Anatomical Diagram">
+            
+            <div class="articulation-buttons-container">
+                <div class="xp-panel articulation-btn" data-place="bilabial">Bilabials</div>
+                <div class="xp-panel articulation-btn" data-place="labiodental">Labiodentals</div>
+                <div class="xp-panel articulation-btn" data-place="dental">Dentals</div>
+                <div class="xp-panel articulation-btn" data-place="alveolar">Alveolar</div>
+                <div class="xp-panel articulation-btn" data-place="palatal">Palatals</div>
+                <div class="xp-panel articulation-btn" data-place="velar">Velars</div>
+                <div class="xp-panel articulation-btn" data-place="glottal">Glottals</div>
+            </div>
+
+            <div id="popup-display" class="explanation-popup">
+                <strong id="popup-title" style="color: var(--xp-blue-dark); font-size: 14px;"></strong>
+                <p id="popup-text" style="margin-top: 6px; font-size: 13px; color: #333;"></p>
+            </div>
+
+            <h3>Manner of Articulation</h3>
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+                <li><strong>Stops/Plosive:</strong> Complete blockage of air.</li>
+                <li><strong>Fricative:</strong> Friction caused by narrow gap.</li>
+                <li><strong>Nasal:</strong> Air through the nose.</li>
+                <li><strong>Affricates:</strong> Stop followed by a fricative.</li>
+                <li><strong>Approximants:</strong> Close but no friction.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="ipa-win" class="xp-window">
+        <div class="xp-titlebar">
+            <div class="xp-title-text">📊 IPA_Table.xls</div>
+            <div class="xp-controls"><div class="xp-btn xp-close">X</div></div>
+        </div>
+        <div class="xp-content">
+            <h2>The IPA Consonants Table</h2>
+            <div class="table-responsive-wrapper">
+                <table class="ipa-table">
+                    <tr>
+                        <th>Manner / Place</th>
+                        <th>Bilabial</th>
+                        <th>Labiodental</th>
+                        <th>Alveolar</th>
+                        <th>Velar</th>
+                        <th>Glottal</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Plosive</strong></td>
+                        <td>p b</td>
+                        <td></td>
+                        <td>t d</td>
+                        <td>k g</td>
+                        <td>ʔ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nasals</strong></td>
+                        <td>m</td>
+                        <td></td>
+                        <td>n</td>
+                        <td>ŋ</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fricative</strong></td>
+                        <td></td>
+                        <td>f v</td>
+                        <td>s z</td>
+                        <td></td>
+                        <td>h</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Liquids</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td>l r</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glides</strong></td>
+                        <td>w</td>
+                        <td></td>
+                        <td></td>
+                        <td>j</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-win" class="xp-window">
+        <div class="xp-titlebar">
+            <div class="xp-title-text">🎮 Sound_Blaster_Diagnostic.exe</div>
+            <div class="xp-controls"><div class="xp-btn xp-close">X</div></div>
+        </div>
+        <div class="xp-content">
+            <h2>The Sound Blaster: Consonant Calibrator</h2>
+            <p style="margin-bottom: 15px;">
+                <strong>Instructions:</strong> Test your expertise! The system will queue exactly <strong>3 random consonant sounds</strong> one by one. Select the correct Place and Manner of Articulation. Be careful—a single wrong answer causes an immediate system crash (Game Over)!
+            </p>
+
+            <div class="game-status-panel">
+                <div id="game-log">⚡ SYSTEM IDLE: Awaiting initialization...</div>
+                <div class="game-target-display" id="game-target-sound">[- ? -]</div>
+                <div style="text-align: center; font-size: 12px;" id="game-progress-text">Verification Stage: 0 / 3</div>
+            </div>
+
+            <div id="game-interface-panel" style="display: none;">
+                <div class="game-grid-title">1. Select Place of Articulation:</div>
+                <div class="game-selection-grid" id="grid-places">
+                    <div class="game-choice-btn" data-type="place" data-value="bilabial">Bilabial</div>
+                    <div class="game-choice-btn" data-type="place" data-value="labiodental">Labiodental</div>
+                    <div class="game-choice-btn" data-type="place" data-value="dental">Dental</div>
+                    <div class="game-choice-btn" data-type="place" data-value="alveolar">Alveolar</div>
+                    <div class="game-choice-btn" data-type="place" data-value="palatal">Palatal</div>
+                    <div class="game-choice-btn" data-type="place" data-value="velar">Velar</div>
+                    <div class="game-choice-btn" data-type="place" data-value="glottal">Glottal</div>
+                </div>
+
+                <div class="game-grid-title">2. Select Manner of Articulation:</div>
+                <div class="game-selection-grid" id="grid-manners">
+                    <div class="game-choice-btn" data-type="manner" data-value="plosive">Plosive</div>
+                    <div class="game-choice-btn" data-type="manner" data-value="nasal">Nasal</div>
+                    <div class="game-choice-btn" data-type="manner" data-value="fricative">Fricative</div>
+                    <div class="game-choice-btn" data-type="manner" data-value="liquid">Liquid</div>
+                    <div class="game-choice-btn" data-type="manner" data-value="glide">Glide</div>
+                </div>
+
+                <div style="text-align: center; margin-top: 15px;">
+                    <button class="game-start-btn" id="btn-submit-choice" style="background: linear-gradient(to bottom, #388e3c 0%, #1b5e20 100%);">Verify Properties</button>
+                </div>
+            </div>
+
+            <div style="text-align: center; padding: 10px;" id="game-control-deck">
+                <button class="game-start-btn" id="btn-action-game">Run Diagnostic Game</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="thanks-win" class="xp-window">
+        <div class="xp-titlebar">
+            <div class="xp-title-text">👋 System_Shutdown_ThankYou.exe</div>
+            <div class="xp-controls">
+                <div class="xp-btn xp-min">_</div>
+                <div class="xp-btn xp-max">⬜</div>
+                <div class="xp-btn xp-close">X</div>
+            </div>
+        </div>
+        <div class="xp-content" style="text-align: center;">
+            <div class="thanks-banner">
+                <h1>THANK YOU!</h1>
+                <p>May the force of clear communication and phonetics be with you.</p>
+            </div>
+            
+            <div class="gif-container">
+                <img src="darth-vader-tidey.gif" alt="Darth Vader Tidying Gif">
+            </div>
+            
+            <p style="margin-top: 15px; font-weight: bold; color: var(--xp-blue-dark);">
+                Presentation concluded by Nur Aleeya & Muhammad Khaidir.
+            </p>
+        </div>
+    </div>
+
+    <div class="xp-taskbar">
+        <div class="start-button">start</div>
+        <div class="taskbar-tab" onclick="location.href='#home-win'">🏠 Welcome</div>
+        <div class="taskbar-tab" onclick="location.href='#pragmatics-win'">📁 Pragmatics</div>
+        <div class="taskbar-tab" onclick="location.href='#phonetics-win'">🔊 Phonetics</div>
+        <div class="taskbar-tab" onclick="location.href='#game-win'">🎮 Sound Game</div>
+        <div class="taskbar-tab" onclick="location.href='#thanks-win'">👋 Exit</div>
+        <div class="system-tray" id="xp-clock">12:00 PM</div>
+    </div>
+
+    <script>
+        // Phonetics description dataset 
+        const descriptions = {
+            bilabial: {
+                title: "Bilabial Articulation",
+                text: "Produced by bringing both the upper and lower lips together to obstruct or redirect airflow. (e.g., [p], [b], [m], [w])"
+            },
+            labiodental: {
+                title: "Labiodental Articulation",
+                text: "Formed by bringing the upper front teeth into contact with the inner edge of the lower lip. (e.g., [f], [v])"
+            },
+            dental: {
+                title: "Dental Articulation",
+                text: "Produced by placing the tip or blade of the tongue behind or against the upper teeth. (e.g., [θ] as in 'thin', [ð] as in 'then')"
+            },
+            alveolar: {
+                title: "Alveolar Articulation",
+                text: "Formed by lifting the tip of the tongue toward the bony alveolar ridge located right behind the upper teeth. (e.g., [t], [d], [n], [s], [z], [l], [r])"
+            },
+            palatal: {
+                title: "Palatal Articulation",
+                text: "Produced by raising the middle body of the tongue up against the hard palate—the hard roof of the mouth. (e.g., [j] as in 'yes')"
+            },
+            velar: {
+                title: "Velar Articulation",
+                text: "Formed by raising the back of the tongue against the soft palate or velum near the rear of the mouth. (e.g., [k], [g], [ŋ] as in 'sing')"
+            },
+            glottal: {
+                title: "Glottal Articulation",
+                text: "Produced down at the larynx via the opening between the vocal folds, known as the glottis. (e.g., [h], or the glottal stop [ʔ] as in 'uh-oh')"
+            }
+        };
+
+        const targetButtons = document.querySelectorAll('.articulation-btn');
+        const displayBox = document.getElementById('popup-display');
+        const displayTitle = document.getElementById('popup-title');
+        const displayText = document.getElementById('popup-text');
+
+        function openExplanation(id, selectedElement) {
+            const data = descriptions[id];
+            if (data) {
+                displayTitle.textContent = data.title;
+                displayText.textContent = data.text;
+                displayBox.style.display = 'block';
+
+                targetButtons.forEach(btn => btn.classList.remove('active-popup'));
+                if (selectedElement) {
+                    selectedElement.classList.add('active-popup');
+                }
+            }
+        }
+
+        targetButtons.forEach(button => {
+            const placeId = button.getAttribute('data-place');
+            button.addEventListener('mouseenter', () => { openExplanation(placeId, button); });
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+                openExplanation(placeId, button);
+            });
+        });
+
+        document.addEventListener('click', () => {
+            displayBox.style.display = 'none';
+            targetButtons.forEach(btn => btn.classList.remove('active-popup'));
+        });
+
+        // --- SOUND BLASTER GAME SCRIPT LOGIC ---
+        const gamePool = [
+            { sound: "p", place: "bilabial", manner: "plosive" },
+            { sound: "b", place: "bilabial", manner: "plosive" },
+            { sound: "t", place: "alveolar", manner: "plosive" },
+            { sound: "d", place: "alveolar", manner: "plosive" },
+            { sound: "k", place: "velar", manner: "plosive" },
+            { sound: "g", place: "velar", manner: "plosive" },
+            { sound: "ʔ", place: "glottal", manner: "plosive" },
+            { sound: "m", place: "bilabial", manner: "nasal" },
+            { sound: "n", place: "alveolar", manner: "nasal" },
+            { sound: "ŋ", place: "velar", manner: "nasal" },
+            { sound: "f", place: "labiodental", manner: "fricative" },
+            { sound: "v", place: "labiodental", manner: "fricative" },
+            { sound: "s", place: "alveolar", manner: "fricative" },
+            { sound: "z", place: "alveolar", manner: "fricative" },
+            { sound: "h", place: "glottal", manner: "fricative" },
+            { sound: "l", place: "alveolar", manner: "liquid" },
+            { sound: "r", place: "alveolar", manner: "liquid" },
+            { sound: "w", place: "bilabial", manner: "glide" },
+            { sound: "j", place: "palatal", manner: "glide" }
+        ];
+
+        let gameQueue = [];
+        let currentQuestionIndex = 0;
+        let playerSelectedPlace = null;
+        let playerSelectedManner = null;
+
+        const logDisplay = document.getElementById('game-log');
+        const soundDisplay = document.getElementById('game-target-sound');
+        const progressDisplay = document.getElementById('game-progress-text');
+        const interfacePanel = document.getElementById('game-interface-panel');
+        const controlDeck = document.getElementById('game-control-deck');
+        const actionBtn = document.getElementById('btn-action-game');
+        const submitBtn = document.getElementById('btn-submit-choice');
+        const choiceBtns = document.querySelectorAll('.game-choice-btn');
+
+        function initGame() {
+            const shuffled = [...gamePool].sort(() => 0.5 - Math.random());
+            gameQueue = shuffled.slice(0, 3);
+            currentQuestionIndex = 0;
+            
+            interfacePanel.style.display = 'block';
+            controlDeck.style.display = 'none';
+            resetSelectionStates();
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            resetSelectionStates();
+            const currentItem = gameQueue[currentQuestionIndex];
+            soundDisplay.textContent = `[ ${currentItem.sound} ]`;
+            progressDisplay.textContent = `Verification Stage: ${currentQuestionIndex + 1} / 3`;
+            logDisplay.innerHTML = `🟢 <span style="color:#33ff33">RUNNING DIAGNOSTIC: Analyze target sound properties...</span>`;
+            logDisplay.style.color = '#33ff33';
+        }
+
+        function resetSelectionStates() {
+            playerSelectedPlace = null;
+            playerSelectedManner = null;
+            choiceBtns.forEach(btn => btn.classList.remove('selected'));
+        }
+
+        choiceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const type = btn.getAttribute('data-type');
+                const val = btn.getAttribute('data-value');
+
+                if (type === 'place') {
+                    document.querySelectorAll('#grid-places .game-choice-btn').forEach(b => b.classList.remove('selected'));
+                    playerSelectedPlace = val;
+                } else if (type === 'manner') {
+                    document.querySelectorAll('#grid-manners .game-choice-btn').forEach(b => b.classList.remove('selected'));
+                    playerSelectedManner = val;
+                }
+                btn.classList.add('selected');
+            });
+        });
+
+        submitBtn.addEventListener('click', () => {
+            if (!playerSelectedPlace || !playerSelectedManner) {
+                logDisplay.innerHTML = `⚠️ <span style="color:orange">ERROR: Properties incomplete. Choose both Place and Manner!</span>`;
+                logDisplay.style.color = 'orange';
+                return;
+            }
+
+            const activeTarget = gameQueue[currentQuestionIndex];
+
+            if (playerSelectedPlace === activeTarget.place && playerSelectedManner === activeTarget.manner) {
+                currentQuestionIndex++;
+                if (currentQuestionIndex >= 3) {
+                    soundDisplay.textContent = `[ SUCCESS ]`;
+                    progressDisplay.textContent = `Verification Stage: Complete`;
+                    logDisplay.innerHTML = `🎉 <span style="color:#ffffff">CALIBRATION 100% STABLE! You cleared all 3 sounds flawlessly!</span>`;
+                    logDisplay.style.color = '#ffffff';
+                    interfacePanel.style.display = 'none';
+                    controlDeck.style.display = 'block';
+                    actionBtn.textContent = 'Run New Diagnostic';
+                } else {
+                    loadQuestion();
+                }
+            } else {
+                soundDisplay.textContent = `[ CRASH ]`;
+                progressDisplay.textContent = `Verification Stage: Failed`;
+                logDisplay.innerHTML = `❌ <span style="color:#ff3333">FATAL ERROR: Acoustic mismatch detected! System Shutting Down.</span>`;
+                logDisplay.style.color = '#ff3333';
+                interfacePanel.style.display = 'none';
+                controlDeck.style.display = 'block';
+                actionBtn.textContent = 'Retry Diagnostic (Reboot)';
+            }
+        });
+
+        actionBtn.addEventListener('click', initGame);
+
+        // Live Windows XP Style clock utility updates
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('xp-clock').innerText = hours + ':' + minutes + ' ' + ampm;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction To Linguistics - nur aleeya & muhammad khaidir</title>
+    <style>
+        /* --- Windows XP Theme Core Styles --- */
+        :root {
+            --xp-blue: #245edb;
+            --xp-blue-dark: #1d4cb4;
+            --xp-bg-blue: #0053e2;
+            --xp-light-gray: #ece9d8;
+            --xp-border-white: #ffffff;
+            --xp-border-gray: #aca899;
+            --xp-border-dark-gray: #716f64;
+            --xp-orange: #ff9900;
+            --xp-orange-hover: #ffaa22;
+            --xp-start-green: #388e3c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Tahoma", "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            background: #5a7edc url('https://upload.wikimedia.org/wikipedia/en/2/27/Bliss_%28Windows_XP%29.png') no-repeat center center fixed;
+            background-size: cover;
+            padding: 20px 20px 80px 20px;
+            color: #000000;
+            font-size: 13px;
+        }
+
+        /* --- Desktop Shortcut Icons --- */
+        .desktop-shortcuts {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 25px;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            z-index: 5;
+        }
+
+        .shortcut {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 85px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .shortcut-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            transition: background 0.2s;
+        }
+
+        .shortcut:hover .shortcut-icon {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid white;
+        }
+
+        /* --- XP Window Container --- */
+        .xp-window {
+            background: var(--xp-light-gray);
+            border: 3px solid var(--xp-blue);
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+            margin-bottom: 60px;
+            max-width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- Window Title Bar --- */
+        .xp-titlebar {
+            background: linear-gradient(to bottom, #0058f5 0%, #0046d5 10%, #0058f5 50%, #003dd5 86%, #002cd5 100%);
+            padding: 6px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .xp-title-text {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        }
+
+        .xp-controls {
+            display: flex;
+            gap: 3px;
+        }
+
+        .xp-btn {
+            width: 21px;
+            height: 21px;
+            border: 1px solid #ffffff;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: white;
+            box-shadow: inset 1px 1px 1px rgba(255,255,255,0.4);
+        }
+
+        .xp-min { background: linear-gradient(to bottom, #3c7fb1, #1a476b); }
+        .xp-max { background: linear-gradient(to bottom, #3c7fb1, #1a476b); }
+        .xp-close { background: linear-gradient(to bottom, #e7633a, #b02300); }
+
+        /* --- Content Body --- */
+        .xp-content {
+            padding: 20px;
+            background: #ffffff;
+            margin: 4px;
+            border: 2px inset #ffffff;
+        }
+
+        /* --- Home/Exit Banner Styles --- */
+        .home-banner, .thanks-banner {
+            background: linear-gradient(135deg, #7ba2e7 0%, #3b5ec2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border: 2px outset white;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .thanks-banner {
+            background: linear-gradient(135deg, #f3996b 0%, #d24119 100%);
+        }
+
+        .home-banner h1, .thanks-banner h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-family: "Trebuchet MS", sans-serif;
+        }
+
+        .gif-container {
+            width: 100%;
+            max-width: 220px;
+            margin: 20px auto 10px auto;
+            border: 3px inset #ffffff;
+            background: #000;
+            padding: 4px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .gif-container img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* --- Universal Image Display Styles --- */
+        .xp-image-frame {
+            width: 100%;
+            max-height: 350px;
+            border: 2px inset #ffffff;
+            background: #eef2fb;
+            display: block;
+            margin: 10px 0 15px 0;
+            object-fit: contain;
+        }
+
+        .home-credits {
+            background: var(--xp-light-gray);
+            border: 2px inset white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .home-credits h3 {
+            color: var(--xp-blue-dark);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .names {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* --- Case Studies Layout --- */
+        .case-study-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-container, .phonetics-split {
+                grid-template-columns: 1fr;
+            }
+            .desktop-shortcuts {
+                position: relative;
+                flex-direction: row;
+                justify-content: center;
+                left: 0;
+                top: 0;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* --- Table Layout --- */
+        .table-responsive-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border: 2px inset white;
+            background: #fff;
+        }
+
+        table.ipa-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        table.ipa-table th, table.ipa-table td {
+            border: 1px solid var(--xp-border-gray);
+            padding: 10px;
+            text-align: center;
+        }
+
+        table.ipa-table th {
+            background: #ece9d8;
+            font-weight: bold;
+        }
+
+        /* --- XP Bottom Taskbar --- */
+        .xp-taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #1d4cb4 92%, #193cd2 100%);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            padding: 0 10px;
+        }
+
+        .start-button {
+            height: 34px;
+            background: linear-gradient(to bottom, #388e3c 0%, #4caf50 10%, #388e3c 40%, #2e7d32 85%, #1b5e20 100%);
+            border-radius: 0 10px 10px 0;
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            cursor: pointer;
+            border: none;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+            margin-right: 10px;
+        }
+
+        .taskbar-tab {
+            background: #3a7be2;
+            border: 1px solid #1d4cb4;
+            color: white;
+            padding: 4px 12px;
+            font-size: 12px;
+            border-radius: 3px;
+            margin-right: 5px;
+            cursor: pointer;
+            max-width: 160px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .system-tray {
+            background: #0975e1;
+            margin-left: auto;
+            color: white;
+            padding: 0 15px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            border-left: 1px solid #084388;
+        }
+
+        /* --- Typography Helpers --- */
+        .xp-panel {
+            background: var(--xp-light-gray);
+            border: 2px outset #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .badge-fail { background: #d32f2f; color: white; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+        .badge-success { background: #388e3c; color: white; padding: 2px 8px; border-radius: 3px; font-weight: bold; }
+        h2 { margin-bottom: 15px; border-bottom: 2px groove #ece9d8; padding-bottom: 5px; }
+
+        .comparison-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .comparison-list li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* --- Interactive Popups Styles --- */
+        .articulation-btn-container {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .articulation-btn {
+            flex: 1; 
+            min-width: 120px; 
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.1s, transform 0.05s;
+        }
+
+        /* Hover interaction for computer pointer mice */
+        @media (hover: hover) {
+            .articulation-btn:hover {
+                background: #fffff0;
+                border-color: var(--xp-orange);
+                box-shadow: 0px 0px 4px var(--xp-orange);
+            }
+        }
+
+        /* Active click styling simulation */
+        .articulation-btn:active, .articulation-btn.active {
+            border-style: inset !important;
+            background: #dcd9c8 !important;
+        }
+
+        .info-popup-box {
+            background: #ffffe1; /* Windows System Tooltip Yellow tint */
+            border: 1px solid #000000;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            display: none;
+            font-size: 13px;
+            line-height: 1.4;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-3px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
     </style>
@@ -474,7 +1503,6 @@
             <h2>2. Phonetics: Consonants</h2>
             <p><strong>Definition:</strong> A consonant is a speech sound that is produced with some restriction or closure in the vocal tract that impedes the air flow from the lung.</p>
             
-            <!-- Underline fixed, structural presentation upgraded without changing your words -->
             <div class="xp-panel">
                 <p style="font-weight: bold; margin-bottom: 10px; color: var(--xp-blue-dark); text-transform: uppercase;">Consonants vs. Vowels: These are the three major differences between consonantds and vowels.</p>
                 <ul class="comparison-list">
@@ -495,14 +1523,23 @@
 
             <h3>Places of Articulation</h3>
             <img class="xp-image-frame" src="place.png" style="max-height: 250px; margin-left: auto; margin-right: auto;" alt="Vocal Tract Anatomical Diagram">
-            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
-                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Bilabials</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Labiodentals</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Dentals</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Alveolar</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Palatals</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Velars</div>
-                <div class="xp-panel" style="flex: 1; min-width: 120px; text-align: center;">Glottals</div>
+            
+            <!-- Interactive Action buttons wrapper -->
+            <p style="margin-bottom: 8px; font-style: italic; color: #555;">💡 Hover or click a location button to see its phonetic description below:</p>
+            <div class="articulation-btn-container">
+                <div class="xp-panel articulation-btn" data-target="bilabial">Bilabials</div>
+                <div class="xp-panel articulation-btn" data-target="labiodental">Labiodentals</div>
+                <div class="xp-panel articulation-btn" data-target="dental">Dentals</div>
+                <div class="xp-panel articulation-btn" data-target="alveolar">Alveolar</div>
+                <div class="xp-panel articulation-btn" data-target="palatal">Palatals</div>
+                <div class="xp-panel articulation-btn" data-target="velar">Velars</div>
+                <div class="xp-panel articulation-btn" data-target="glottal">Glottals</div>
+            </div>
+
+            <!-- Dynamic Display target panels -->
+            <div id="info-box" class="info-popup-box">
+                <strong id="info-title"></strong>
+                <p id="info-desc" style="margin-top: 5px;"></p>
             </div>
 
             <h3>Manner of Articulation</h3>
@@ -525,7 +1562,6 @@
         <div class="xp-content">
             <h2>The IPA Consonants Table</h2>
             <div class="table-responsive-wrapper">
-                <!-- Completed with all 5 requested rows and corresponding layout mapping -->
                 <table class="ipa-table">
                     <tr>
                         <th>Manner / Place</th>
@@ -596,7 +1632,6 @@
                 <p>May the force of clear communication and phonetics be with you.</p>
             </div>
             
-            <!-- Target for your Darth Vader Gif -->
             <div class="gif-container">
                 <img src="darth-vader-tidey.gif" alt="Darth Vader Tidying Gif">
             </div>
@@ -618,6 +1653,79 @@
     </div>
 
     <script>
+        // Data containing definitions for dynamic display
+        const placeData = {
+            bilabial: {
+                title: "Bilabials",
+                desc: "Sounds produced using both the upper and lower lips pressed together. Examples include [p], [b], and [m]."
+            },
+            labiodental: {
+                title: "Labiodentals",
+                desc: "Sounds formed by bringing the lower lip into contact with the upper front teeth. Examples include [f] and [v]."
+            },
+            dental: {
+                title: "Dentals",
+                desc: "Sounds produced with the tongue tip placed against or just behind the upper teeth. Examples include the 'th' sounds [θ] and [ð]."
+            },
+            alveolar: {
+                title: "Alveolar",
+                desc: "Sounds formed by lifting the front part of the tongue against the tooth ridge (alveolar ridge) right behind the upper teeth. Examples include [t], [d], [n], [s], [z], [l], and [r]."
+            },
+            palatal: {
+                title: "Palatals",
+                desc: "Sounds produced by raising the body of the tongue toward or touching the hard palate (the roof of your mouth). An example includes the glide sound [j]."
+            },
+            velar: {
+                title: "Velars",
+                desc: "Sounds made by lowering the back part of the tongue against the soft palate (velum) near the throat. Examples include [k], [g], and [ŋ]."
+            },
+            glottal: {
+                title: "Glottals",
+                desc: "Sounds produced down in the throat using the glottis (the open space between the vocal cords). Examples include [h] and the glottal stop [ʔ]."
+            }
+        };
+
+        const buttons = document.querySelectorAll('.articulation-btn');
+        const infoBox = document.getElementById('info-box');
+        const infoTitle = document.getElementById('info-title');
+        const infoDesc = document.getElementById('info-desc');
+
+        function displayInfo(key, targetElement) {
+            if (placeData[key]) {
+                // Set text data
+                infoTitle.innerText = placeData[key].title;
+                infoDesc.innerText = placeData[key].desc;
+                infoBox.style.display = "block";
+                
+                // Clear any other active buttons, toggle highlight on current one
+                buttons.forEach(btn => btn.classList.remove('active'));
+                if (targetElement) targetElement.classList.add('active');
+            }
+        }
+
+        // Add event listeners tracking desktop hover and global click states
+        buttons.forEach(button => {
+            const key = button.getAttribute('data-target');
+            
+            // 1. Mouse hover on desktop computers
+            button.addEventListener('mouseenter', function() {
+                displayInfo(key, button);
+            });
+
+            // 2. Click events handling touch screen mobile devices and standard clicks
+            button.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevents instant closing on click triggers
+                displayInfo(key, button);
+            });
+        });
+
+        // Hiding the popup window if clicking anywhere else on the document viewport
+        document.addEventListener('click', function() {
+            infoBox.style.display = "none";
+            buttons.forEach(btn => btn.classList.remove('active'));
+        });
+
+        // Live Windows XP Style clock utility updates
         function updateClock() {
             const now = new Date();
             let hours = now.getHours();
