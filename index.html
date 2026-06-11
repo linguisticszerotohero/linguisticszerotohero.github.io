@@ -626,12 +626,14 @@
             </div>
 
             <h3>Manner of Articulation</h3>
-            <ul style="padding-left: 20px; margin-bottom: 20px;">
-                <li><strong>Stops/Plosive:</strong> Complete blockage of air.</li>
-                <li><strong>Fricative:</strong> Friction caused by narrow gap.</li>
-                <li><strong>Nasal:</strong> Air through the nose.</li>
-                <li><strong>Affricates:</strong> Stop followed by a fricative.</li>
-                <li><strong>Approximants:</strong> Close but no friction.</li>
+            <ul style="padding-left: 20px; margin-bottom: 20px; line-height: 1.6;">
+                <li><strong>Plosive (Stops):</strong> Complete blockage of airflow followed by a sudden release.</li>
+                <li><strong>Fricative:</strong> Continuous friction caused by squeezing air through a narrow gap.</li>
+                <li><strong>Affricates:</strong> A combination sound starting as a stop and releasing into a fricative.</li>
+                <li><strong>Nasals:</strong> Lowering the soft palate so air escapes freely out through the nose.</li>
+                <li><strong>Liquids:</strong> Smooth vocal sounds with minor tongue obstructions (lateral/rhotic).</li>
+                <li><strong>Glides:</strong> Semivowels produced with minimal structural restriction.</li>
+                <li><strong>Glottal:</strong> Modifications happening directly back at the vocal chords/glottis.</li>
             </ul>
         </div>
     </div>
@@ -650,6 +652,7 @@
                         <th>Bilabial</th>
                         <th>Labiodental</th>
                         <th>Alveolar</th>
+                        <th>Palatal</th>
                         <th>Velar</th>
                         <th>Glottal</th>
                     </tr>
@@ -658,16 +661,9 @@
                         <td>p b</td>
                         <td></td>
                         <td>t d</td>
+                        <td></td>
                         <td>k g</td>
                         <td>ʔ</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Nasals</strong></td>
-                        <td>m</td>
-                        <td></td>
-                        <td>n</td>
-                        <td>ŋ</td>
-                        <td></td>
                     </tr>
                     <tr>
                         <td><strong>Fricative</strong></td>
@@ -675,13 +671,33 @@
                         <td>f v</td>
                         <td>s z</td>
                         <td></td>
+                        <td></td>
                         <td>h</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Affricates</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td>tʃ dʒ</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nasals</strong></td>
+                        <td>m</td>
+                        <td></td>
+                        <td>n</td>
+                        <td></td>
+                        <td>ŋ</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td><strong>Liquids</strong></td>
                         <td></td>
                         <td></td>
                         <td>l r</td>
+                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -692,6 +708,16 @@
                         <td></td>
                         <td>j</td>
                         <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Glottal</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>ʔ h</td>
                     </tr>
                 </table>
             </div>
@@ -730,10 +756,12 @@
                 <div class="game-grid-title">2. Select Manner of Articulation:</div>
                 <div class="game-selection-grid" id="grid-manners">
                     <div class="game-choice-btn" data-type="manner" data-value="plosive">Plosive</div>
-                    <div class="game-choice-btn" data-type="manner" data-value="nasal">Nasal</div>
                     <div class="game-choice-btn" data-type="manner" data-value="fricative">Fricative</div>
+                    <div class="game-choice-btn" data-type="manner" data-value="affricate">Affricate</div>
+                    <div class="game-choice-btn" data-type="manner" data-value="nasal">Nasal</div>
                     <div class="game-choice-btn" data-type="manner" data-value="liquid">Liquid</div>
                     <div class="game-choice-btn" data-type="manner" data-value="glide">Glide</div>
+                    <div class="game-choice-btn" data-type="manner" data-value="glottal">Glottal</div>
                 </div>
 
                 <div style="text-align: center; margin-top: 15px;">
@@ -799,7 +827,7 @@
             },
             alveolar: {
                 title: "Alveolar Articulation",
-                text: "Formed by lifting the tip of the tongue toward the bony alveolar ridge located right behind the upper teeth. (e.g., [t], [d], [n], [s], [z], [l], [r])"
+                text: "Formed by lifting the tip of the tongue toward the bony alveolar ridge located right behind the upper teeth. (e.g., [t], [d], [n], [s], [z], [l], [r], [tʃ], [dʒ])"
             },
             palatal: {
                 title: "Palatal Articulation",
@@ -856,19 +884,23 @@
             { sound: "d", place: "alveolar", manner: "plosive" },
             { sound: "k", place: "velar", manner: "plosive" },
             { sound: "g", place: "velar", manner: "plosive" },
-            { sound: "ʔ", place: "glottal", manner: "plosive" },
-            { sound: "m", place: "bilabial", manner: "nasal" },
-            { sound: "n", place: "alveolar", manner: "nasal" },
-            { sound: "ŋ", place: "velar", manner: "nasal" },
+            { sound: "ʔ (stop)", place: "glottal", manner: "plosive" },
             { sound: "f", place: "labiodental", manner: "fricative" },
             { sound: "v", place: "labiodental", manner: "fricative" },
             { sound: "s", place: "alveolar", manner: "fricative" },
             { sound: "z", place: "alveolar", manner: "fricative" },
             { sound: "h", place: "glottal", manner: "fricative" },
+            { sound: "tʃ", place: "alveolar", manner: "affricate" },
+            { sound: "dʒ", place: "alveolar", manner: "affricate" },
+            { sound: "m", place: "bilabial", manner: "nasal" },
+            { sound: "n", place: "alveolar", manner: "nasal" },
+            { sound: "ŋ", place: "velar", manner: "nasal" },
             { sound: "l", place: "alveolar", manner: "liquid" },
             { sound: "r", place: "alveolar", manner: "liquid" },
             { sound: "w", place: "bilabial", manner: "glide" },
-            { sound: "j", place: "palatal", manner: "glide" }
+            { sound: "j", place: "palatal", manner: "glide" },
+            { sound: "ʔ (glottal)", place: "glottal", manner: "glottal" },
+            { sound: "h (glottal)", place: "glottal", manner: "glottal" }
         ];
 
         let gameQueue = [];
