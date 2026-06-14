@@ -224,6 +224,87 @@
             gap: 20px;
         }
 
+        /* --- BonziBuddy Mini App Style --- */
+        .bonzi-container {
+            background: #ece9d8;
+            border: 3px solid #5a3ea3; /* Classic Bonzi Purple tint border */
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+            margin: 20px auto 40px auto;
+            max-width: 500px;
+            overflow: hidden;
+        }
+        
+        .bonzi-titlebar {
+            background: linear-gradient(to bottom, #aa88ff 0%, #6633cc 100%);
+            padding: 5px 10px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .bonzi-body {
+            padding: 15px;
+            display: flex;
+            gap: 15px;
+            background: white;
+            margin: 4px;
+            border: 2px inset white;
+            align-items: flex-start;
+        }
+        
+        .bonzi-avatar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            min-width: 80px;
+        }
+        
+        .bonzi-img {
+            width: 75px;
+            height: auto;
+        }
+        
+        .bonzi-name {
+            font-weight: bold;
+            color: #5a3ea3;
+            font-size: 11px;
+        }
+
+        .bonzi-bubble {
+            background: #ffffe1;
+            border: 1px solid #000;
+            border-radius: 8px;
+            padding: 12px;
+            position: relative;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        
+        /* Bubble notch pointing left to monkey */
+        .bonzi-bubble::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 25px;
+            border-width: 5px 10px 5px 0;
+            border-style: solid;
+            border-color: transparent #000 transparent transparent;
+        }
+        .bonzi-bubble::after {
+            content: "";
+            position: absolute;
+            left: -9px;
+            top: 25px;
+            border-width: 5px 10px 5px 0;
+            border-style: solid;
+            border-color: transparent #ffffe1 transparent transparent;
+        }
+
         @media (max-width: 768px) {
             .case-study-container, .phonetics-split {
                 grid-template-columns: 1fr;
@@ -235,6 +316,13 @@
                 left: 0;
                 top: 0;
                 flex-wrap: wrap;
+            }
+            .bonzi-body {
+                flex-direction: column;
+                align-items: center;
+            }
+            .bonzi-bubble::before, .bonzi-bubble::after {
+                display: none; /* Hide arrow on mobile column block stack */
             }
         }
 
@@ -462,6 +550,7 @@
 </head>
 <body>
 
+    <!-- Desktop Icons -->
     <div class="desktop-shortcuts">
         <a href="#home-win" class="shortcut">
             <div class="shortcut-icon">🏠</div>
@@ -485,6 +574,7 @@
         </a>
     </div>
 
+    <!-- WINDOW: Homepage Welcome Header -->
     <div id="home-win" class="xp-window">
         <div class="xp-titlebar">
             <div class="xp-title-text">🌐 Welcome_To_Linguistics.exe</div>
@@ -518,6 +608,7 @@
         </div>
     </div>
 
+    <!-- WINDOW: Pragmatics Section -->
     <div id="pragmatics-win" class="xp-window">
         <div class="xp-titlebar">
             <div class="xp-title-text">📁 Pragmatics_Module.exe</div>
@@ -548,6 +639,7 @@
         </div>
     </div>
 
+    <!-- WINDOW: Case Studies Gallery -->
     <div id="cases-win" class="xp-window">
         <div class="xp-titlebar">
             <div class="xp-title-text">🖼️ Manner_Example_Viewer.dll</div>
@@ -580,6 +672,7 @@
         </div>
     </div>
 
+    <!-- WINDOW: Phonetics Consonants Section -->
     <div id="phonetics-win" class="xp-window">
         <div class="xp-titlebar">
             <div class="xp-title-text">📁 Phonetics_Consonants.exe</div>
@@ -593,15 +686,15 @@
                 <p style="font-weight: bold; margin-bottom: 10px; color: var(--xp-blue-dark); text-transform: uppercase;">Consonants vs. Vowels: These are the three major differences between consonantds and vowels.</p>
                 <ul class="comparison-list">
                     <li>
-                        <strong>1. Airflow Modification</strong><br>
+                        <strong>1. Airflow Modification ("Roadblocks" vs. Free Flow)</strong><br>
                         To pronounce a consonant sound, the air from you lung hits a "roadblocks" or a certain mouth structure like tongue, teeth, or lips to actively block, squeeze or redirect the air. Unlike how we pronounce vowels, your mouth stays wide open and the airflow is completely unobstructed.
                     </li>
                     <li>
-                        <strong>2. How They're Produced</strong><br>
+                        <strong>2. Production Mechanics (Physical Contact vs. Shaping Spaces)</strong><br>
                         While Consonants rely on physical contact in the mouth to pronounce them, vowels rely only on shaping spcaes for it to be pronounced.
                     </li>
                     <li>
-                        <strong>3. Syllabic Infrastructure</strong><br>
+                        <strong>3. Syllabic Infrastructure (The Language Backbone vs. Consonant Limits)</strong><br>
                         Vowels are the backbone of language for every syllable must have a vowel. In contrary to consonants, you cannot build a proper syllable out of consonants alone.
                     </li>
                 </ul>
@@ -627,17 +720,43 @@
 
             <h3>Manner of Articulation</h3>
             <ul style="padding-left: 20px; margin-bottom: 20px; line-height: 1.6;">
-                <li><strong>Plosive (Stops):</strong> Complete block in the oral cavity for a short period.</li>
+                <li><strong>Plosive (Stops):</strong> Complete blockage of airflow followed by a sudden release.</li>
                 <li><strong>Fricative:</strong> Continuous friction caused by squeezing air through a narrow gap.</li>
-                <li><strong>Affricates:</strong> A brief stopping of the airstream with an obstructed release which causes some friction.</li>
-                <li><strong>Nasals:</strong> Involves lowering the velum and allowing the airstream to flow out through the nose.</li>
-                <li><strong>Liquids:</strong> Letting the air stream flow around the sides of the tongue as the tip of the tongue makes contact with the middle of the alveolar.</li>
-                <li><strong>Glides:</strong> Gliding the tongue to or from a position of a vowel.</li>
-                <li><strong>Glottal Stops:</strong> Completely closing the space between the vocal folds(very briefly) and then release.</li>
+                <li><strong>Affricates:</strong> A combination sound starting as a stop and releasing into a fricative.</li>
+                <li><strong>Nasals:</strong> Lowering the soft palate so air escapes freely out through the nose.</li>
+                <li><strong>Liquids:</strong> Smooth vocal sounds with minor tongue obstructions (lateral/rhotic).</li>
+                <li><strong>Glides:</strong> Semivowels produced with minimal structural restriction.</li>
+                <li><strong>Glottal:</strong> Modifications happening directly back at the vocal chords/glottis.</li>
             </ul>
         </div>
     </div>
 
+    <!-- NEW CONTENT WINDOW: BonziBuddy Desktop Companion Box -->
+    <div class="bonzi-container">
+        <div class="bonzi-titlebar">
+            <div>🐒 BonziBuddy_Assistant.chat</div>
+            <div>[X]</div>
+        </div>
+        <div class="bonzi-body">
+            <div class="bonzi-avatar">
+                <!-- Updated source to target your locally downloaded file -->
+                <img class="bonzi-img" src="BonziBUDDY.png" alt="BonziBuddy Virus Character Icon">
+                <div class="bonzi-name">BonziBuddy</div>
+            </div>
+            <div class="bonzi-bubble">
+                <strong>Significance of Learning Phonetics (Consonant)</strong>
+                <br><br>
+                • learning consonants reveals accurately how to place your tongue, teeth, and lips to redirect airflow when you are pronouncing sounds.<br>
+                • Mastering it will eventually prevent you from mistakenly substituting the wrong sounds when pronouncing certain word.
+                <br><br>
+                <strong>for example:</strong>
+                <br><br>
+                "Think" requires a dental fricative (&theta;), where the tongue touches the teeth. "Sink" requires an alveolar fricative (s), where the tongue is behind the teeth.
+            </div>
+        </div>
+    </div>
+
+    <!-- WINDOW: The IPA Chart -->
     <div id="ipa-win" class="xp-window">
         <div class="xp-titlebar">
             <div class="xp-title-text">📊 IPA_Table.xls</div>
@@ -724,6 +843,7 @@
         </div>
     </div>
 
+    <!-- WINDOW: Sound Blaster Quiz Game Setup -->
     <div id="game-win" class="xp-window">
         <div class="xp-titlebar">
             <div class="xp-title-text">🎮 Sound_Blaster_Diagnostic.exe</div>
@@ -741,6 +861,7 @@
                 <div style="text-align: center; font-size: 12px;" id="game-progress-text">Verification Stage: 0 / 3</div>
             </div>
 
+            <!-- Operational Interface Viewport -->
             <div id="game-interface-panel" style="display: none;">
                 <div class="game-grid-title">1. Select Place of Articulation:</div>
                 <div class="game-selection-grid" id="grid-places">
@@ -769,12 +890,14 @@
                 </div>
             </div>
 
+            <!-- Launch control platform area -->
             <div style="text-align: center; padding: 10px;" id="game-control-deck">
                 <button class="game-start-btn" id="btn-action-game">Run Diagnostic Game</button>
             </div>
         </div>
     </div>
 
+    <!-- WINDOW: Thank You Closing Screen -->
     <div id="thanks-win" class="xp-window">
         <div class="xp-titlebar">
             <div class="xp-title-text">👋 System_Shutdown_ThankYou.exe</div>
@@ -800,6 +923,7 @@
         </div>
     </div>
 
+    <!-- WINDOW XP BOTTOM TASKBAR -->
     <div class="xp-taskbar">
         <div class="start-button">start</div>
         <div class="taskbar-tab" onclick="location.href='#home-win'">🏠 Welcome</div>
